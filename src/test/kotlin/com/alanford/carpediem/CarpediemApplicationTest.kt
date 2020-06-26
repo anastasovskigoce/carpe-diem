@@ -1,12 +1,14 @@
 package com.alanford.carpediem
 
 import org.junit.jupiter.api.Test
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.util.Assert
 
+@SpringBootTest
 internal class CarpediemApplicationTest {
 
     @Test
-    fun listOfTopThirtyQuotes() {
+    fun listOfTociwpThirtyQuotes() {
         val application = CarpediemApplication()
 
         val result = application.listOfTopThirtyQuotes()

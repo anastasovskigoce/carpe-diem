@@ -35,5 +35,6 @@ class CarpediemApplication {
 	fun getQuote(@RequestParam(value = "id", defaultValue = "1") id: String?): String {
 		//Not really sure if we need  this method
 		return String.format("The requested quote id is %s!", id)
+
 	}
 }
