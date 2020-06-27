@@ -1,26 +1,27 @@
 package com.alanford.carpediem
 
+import com.alanford.carpediem.controllers.QuotesController
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.util.Assert
 
 @SpringBootTest
-internal class CarpediemApplicationTest {
+internal class QuotesControllerTest {
 
     @Test
-    fun listOfTociwpThirtyQuotes() {
-        val application = CarpediemApplication()
+    fun listOfTopThirtyQuotes() {
+        val controller = QuotesController()
 
-        val result = application.listOfTopThirtyQuotes()
+        val result = controller.listOfTopThirtyQuotes()
 
         Assert.hasText(result, "To be or not to be, that is the question")
     }
 
     @Test
     fun getQuote() {
-        val application = CarpediemApplication()
+        val controller = QuotesController()
 
-        val result = application.getQuote("2")
+        val result = controller.getQuote("2")
 
         Assert.hasText(result, "The requested quote id is 2!")
     }
