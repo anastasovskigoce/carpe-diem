@@ -12,7 +12,7 @@ internal class QuotesControllerTest {
     fun listOfTopThirtyQuotes() {
         val controller = QuotesController()
 
-        val result = controller.listOfTopThirtyQuotes()
+        val result = controller.listOfAllQuotes()
 
         Assert.hasText(result, "To be or not to be, that is the question")
     }
