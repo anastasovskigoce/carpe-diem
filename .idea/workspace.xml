@@ -85,32 +85,13 @@
       <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.CarpeDiemApplication">
+  <component name="RunManager" selected="Kotlin.CarpeDiemApplication (1)">
     <configuration name="QuotesControllerAPICallsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.alanford.carpediem.QuotesControllerAPICallsTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="QuotesControllerAPICallsTest.greetingShouldReturnMessageFromService" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.alanford.carpediem.QuotesControllerAPICallsTest.greetingShouldReturnMessageFromService&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -162,6 +143,19 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="CarpeDiemApplication (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Documents.carpe-diem.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.alanford.carpediem.CarpeDiemApplication" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarpeDiemApplication" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="carpe-diem.main" />
       <option name="VM_PARAMETERS" />
@@ -177,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.CarpeDiemApplication (1)" />
         <item itemvalue="Kotlin.CarpeDiemApplication" />
         <item itemvalue="Gradle.QuotesControllerAPICallsTest" />
         <item itemvalue="Gradle.QuotesControllerAPICallsTest.verify that quote api call returns a particular quote" />
         <item itemvalue="Gradle.QuotesControllerAPICallsTest.verify that quotes api call teturns a list of quotes" />
-        <item itemvalue="Gradle.QuotesControllerAPICallsTest.greetingShouldReturnMessageFromService" />
       </list>
     </recent_temporary>
   </component>
@@ -324,10 +318,10 @@
     <state x="505" y="231" width="670" height="675" key="run.anything.popup/0.23.1680.958@0.23.1680.958" timestamp="1593225758652" />
     <state x="505" y="232" width="670" height="678" key="run.anything.popup/0.23.1680.961@0.23.1680.961" timestamp="1593402847141" />
     <state x="505" y="232" width="670" height="679" key="run.anything.popup/0.23.1680.963@0.23.1680.963" timestamp="1593389559188" />
-    <state x="505" y="232" width="670" height="742" key="search.everywhere.popup" timestamp="1593654749514">
+    <state x="505" y="232" width="670" height="742" key="search.everywhere.popup" timestamp="1593657229913">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="232" width="670" height="742" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593654749514" />
+    <state x="505" y="232" width="670" height="742" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593657229913" />
     <state x="505" y="233" width="670" height="675" key="search.everywhere.popup/0.23.1680.956@0.23.1680.956" timestamp="1593139271877" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.958@0.23.1680.958" timestamp="1593131145953" />
     <state x="505" y="235" width="670" height="679" key="search.everywhere.popup/0.23.1680.961@0.23.1680.961" timestamp="1593404248322" />
