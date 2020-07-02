@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * TODO add description
+ *  A quote
  */
 @Document(collection = "quotes")
 data class Quote(

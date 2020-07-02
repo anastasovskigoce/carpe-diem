@@ -5,6 +5,9 @@ import com.alanford.carpediem.services.QuoteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
+/**
+ * This class handles the interaction betwee the application and the database
+ */
 @RestController
 class QuotesController {
 

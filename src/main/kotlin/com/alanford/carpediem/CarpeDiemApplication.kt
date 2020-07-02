@@ -1,16 +1,16 @@
 package com.alanford.carpediem
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.springframework.boot.SpringApplication
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
 
 @SpringBootApplication
-class CarpediemApplication {
+@EnableEncryptableProperties
+class CarpeDiemApplication {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            SpringApplication.run(CarpediemApplication::class.java, *args)
+            SpringApplication.run(CarpeDiemApplication::class.java, *args)
         }
     }
 }

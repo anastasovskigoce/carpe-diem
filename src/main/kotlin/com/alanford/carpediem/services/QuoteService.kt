@@ -7,7 +7,7 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 /**
- * TODO add comment here
+ *  Service exposes functions that the controller can use to interact with the database
  */
 @Service
 class QuoteService {
