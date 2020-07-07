@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "quotes")
 data class Quote(
         @Id
-        val id: String,
+        val id: String?,
         val quote: String,
         val author: String
 )
