@@ -9,7 +9,7 @@ Use this endpoint to get a list of all the quotes. As of now there are around ~3
 
 ``curl not-yet-ready``
 
-###Response
+### Response
 ````json
 [
     {
@@ -38,7 +38,7 @@ Use this endpoint to get a particular quote.
 
 ``curl not-yet-ready``
 
-###Response
+### Response
 ````json
     {
         "id": "5f02",
@@ -63,7 +63,7 @@ Body of the request
 }
 ```
 
-###Response
+### Response
 ````
 Date: Thu, 24 Feb 2011 12:36:30 GMT
 Status: 200 OK
@@ -86,7 +86,7 @@ Body of the request
 }
 ```
 
-###Response
+### Response
 ````
 Date: Thu, 24 Feb 2011 12:36:30 GMT
 Status: 200 OK
@@ -101,7 +101,7 @@ Use this API if you want to delete an existing quote. Once we receive the reques
 
 ``curl not-yet-ready``
 
-###Response
+### Response
 ````
 Date: Thu, 24 Feb 2011 12:36:30 GMT
 Status: 200 OK
