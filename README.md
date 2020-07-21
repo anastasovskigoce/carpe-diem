@@ -1,4 +1,6 @@
-# Carpe Diem
+
+
+# Carpe Diem ![quotes](https://user-images.githubusercontent.com/58456263/88000807-9dee4a00-cacc-11ea-8684-f5d8f06c793b.png)
 A simple REST API that will get the daily quote
 
 ## Get All Quotes
