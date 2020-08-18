@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class QuoteService {
 
     @Autowired
-    lateinit var quoteRepository: QuoteRepository
+    private lateinit var quoteRepository: QuoteRepository
 
     /**
      * Returns all the quotes
@@ -32,6 +32,10 @@ class QuoteService {
      */
     fun getQuotesByAuthor(authorName: String): List<Quote> {
         return quoteRepository.findAll().filter { it.author.contains(authorName, true) }
+    }
+
+    fun generateRandomRating(quote: Quote){
+        quoteRepository.save(quote)
     }
 
     /**
