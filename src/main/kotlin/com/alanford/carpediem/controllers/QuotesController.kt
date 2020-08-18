@@ -29,6 +29,14 @@ class QuotesController {
     @GetMapping("/quote")
     fun getQuote(@RequestParam(value = "id", defaultValue = "1") id: String) = quoteService.getQuoteById(id)
 
+    /**
+     * Return a list of quotes by an author
+     * @param authorName the name of the author
+     */
+    @GetMapping("/quoteByAuthor")
+    fun getQuoteByAuthor(@RequestParam(value = "authorName", defaultValue = "Anonymous") authorName: String): List<Quote> {
+        return quoteService.getQuotesByAuthor(authorName)
+    }
 
     /**
      * Removes all duplicate quotes

@@ -21,22 +21,18 @@ class QuoteService {
     fun getAllQuotes() = quoteRepository.findAll().toList()
 
     /**
-     * Returns a a quote with the specified ID
+     * Returns a quote with the specified ID
      * @param id the ID of the quote you want to retrieve
      */
     fun getQuoteById(id: String) = quoteRepository.findByIdOrNull(id)
 
     /**
-     * Adds a new quote
-     * @param quote the quote you want to add
+     * Returns all quotes by a particular author
+     * @param authorName the name of the author for which you want the quotes
      */
-    fun addQuote(quote: Quote) = quoteRepository.save(quote)
-
-    /**
-     * Updates an existing quote. If the quote does not exist it will be added
-     * @param the quote that you want to update
-     */
-    fun updateQuote(quote: Quote) = quoteRepository.save(quote)
+    fun getQuotesByAuthor(authorName: String): List<Quote> {
+        return quoteRepository.findAll().filter { it.author.contains(authorName, true) }
+    }
 
     /**
      * Deletes a particular quote
