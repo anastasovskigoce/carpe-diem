@@ -36,7 +36,7 @@ class QuotesController {
      */
     @GetMapping("/quote-by-author")
     fun getQuoteByAuthor(@RequestParam(value = "authorName", defaultValue = "Anonymous") authorName: String): List<Quote> {
-        return quoteService.getQuotesByAuthor(authorName)
+        return quoteService.getQuotesByAuthor(authorName).sortedByDescending { it.rating }
     }
 
     /**
