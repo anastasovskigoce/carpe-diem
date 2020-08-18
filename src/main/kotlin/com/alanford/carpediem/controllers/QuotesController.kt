@@ -28,4 +28,32 @@ class QuotesController {
      */
     @GetMapping("/quote")
     fun getQuote(@RequestParam(value = "id", defaultValue = "1") id: String) = quoteService.getQuoteById(id)
+
+
+    /**
+     * Removes all duplicate quotes
+     */
+    @GetMapping("/removeDuplicates")
+    fun removeDuplicates() {
+        val allQuotes = quoteService.getAllQuotes()
+        val mapOfQuotes = HashMap<String, String?>()
+        val duplicatesToRemove = mutableListOf<String?>()
+
+        allQuotes.forEach { quote ->
+            // if the map already contains this quote add it to the duplicatesToRemove list
+            if (mapOfQuotes.containsKey(quote.quote)) {
+                duplicatesToRemove.add(quote.id)
+            } else {
+                //otherwise add the quote to the map
+                mapOfQuotes[quote.quote] = quote.id
+            }
+        }
+
+        //delete all duplicates
+        duplicatesToRemove.forEach { duplicateQuote ->
+            if (duplicateQuote != null) {
+                quoteService.deleteQuote(duplicateQuote)
+            }
+        }
+    }
 }
