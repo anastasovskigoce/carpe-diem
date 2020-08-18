@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 class QuoteReviewService {
 
     @Autowired
-    lateinit var quoteReviewRepository: QuoteReviewRepository
+    private lateinit var quoteReviewRepository: QuoteReviewRepository
 
     /**
      * Adds a new quote

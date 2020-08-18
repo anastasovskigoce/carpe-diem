@@ -11,5 +11,6 @@ data class Quote(
         @Id
         val id: String?,
         val quote: String,
-        val author: String
+        val author: String,
+        val rating: Double
 )
