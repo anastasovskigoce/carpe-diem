@@ -1,6 +1,7 @@
 package com.alanford.carpediem.services
 
 import com.alanford.carpediem.models.Quote
+import com.alanford.carpediem.models.QuoteUnderReview
 import com.alanford.carpediem.repository.QuoteRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
@@ -33,6 +34,12 @@ class QuoteService {
     fun getQuotesByAuthor(authorName: String): List<Quote> {
         return quoteRepository.findAll().filter { it.author.contains(authorName, true) }
     }
+
+    /**
+     * Increases the rating of a quote
+     * @param quote the quote with increased rating
+     */
+    fun upOrDownVote(quote: Quote) = quoteRepository.save(quote)
 
     fun generateRandomRating(quote: Quote){
         quoteRepository.save(quote)

@@ -1,8 +1,11 @@
 package com.alanford.carpediem.controllers
 
 import com.alanford.carpediem.models.Quote
+import com.alanford.carpediem.models.QuoteUnderReview
 import com.alanford.carpediem.services.QuoteService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import kotlin.random.Random
 
@@ -40,8 +43,45 @@ class QuotesController {
     }
 
     /**
+     * Reduces the rating of a quote
+     * @param id the ID of the quote
+     */
+    @PutMapping("/up-vote-quote")
+    fun upVote(@RequestParam(value = "id") id: String): ResponseEntity.BodyBuilder {
+        val quote = quoteService.getQuoteById(id)
+        return if (quote != null) {
+            quoteService.upOrDownVote(Quote(id,
+                    quote.quote,
+                    quote.author,
+                    quote.rating + 1)
+            )
+            ResponseEntity.ok()
+        } else {
+            ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        }
+    }
+
+    /**
+     * Increases the rating of a quote
+     * @param id the ID of the quote
+     */
+    @PutMapping("/down-vote-quote")
+    fun downVote(@RequestParam(value = "id") id: String): ResponseEntity.BodyBuilder {
+        val quote = quoteService.getQuoteById(id)
+        return if (quote != null) {
+            quoteService.upOrDownVote(Quote(id,
+                    quote.quote,
+                    quote.author,
+                    quote.rating - 1)
+            )
+            ResponseEntity.ok()
+        } else {
+            ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        }
+    }
+
+    /**
      * Return a list of quotes by an author
-     * @param authorName the name of the author
      */
     @GetMapping("/generate-rating")
     private fun generateRandomRating() {
