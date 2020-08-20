@@ -36,7 +36,7 @@ class QuoteService {
     }
 
     /**
-     * Increases the rating of a quote
+     * Increases or decreases the rating of a quote
      * @param quote the quote with increased rating
      */
     fun upOrDownVote(quote: Quote) = quoteRepository.save(quote)
