@@ -16,6 +16,29 @@ class QuoteService {
     private lateinit var quoteRepository: QuoteRepository
 
     /**
+     * Get quote for notification
+     */
+    fun getQuoteForNotification(): Quote {
+        // get all the quotes
+        val listOfAllQuotes = getAllQuotes()
+        // get the first one that has not been used
+        var quoteResult: Quote? = listOfAllQuotes.firstOrNull { !it.quoteUsedInNotification }
+
+        // we have found a quote we have not used before
+        if(quoteResult != null) {
+            quoteRepository.save(quoteResult.copy(quoteUsedInNotification = true))
+            return quoteResult
+        }
+
+        // update quoteUsedInNotification for all quotes to not be false (reuse quotes)
+        listOfAllQuotes.forEach { quote -> quoteRepository.save(quote.copy(quoteUsedInNotification = false)) }
+        // we used all the available quotes, repeat the list
+        quoteResult = listOfAllQuotes[0]
+        return quoteResult
+    }
+
+
+    /**
      * Returns all the quotes
      */
     fun getAllQuotes() = quoteRepository.findAll().toList()
@@ -34,7 +57,13 @@ class QuoteService {
         return quoteRepository.findAll().filter { it.author.contains(authorName, true) }
     }
 
-    fun generateRandomRating(quote: Quote){
+    /**
+     * Increases or decreases the rating of a quote
+     * @param quote the quote with increased rating
+     */
+    fun upOrDownVote(quote: Quote) = quoteRepository.save(quote)
+
+    fun generateRandomRating(quote: Quote) {
         quoteRepository.save(quote)
     }
 

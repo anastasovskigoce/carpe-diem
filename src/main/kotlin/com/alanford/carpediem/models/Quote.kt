@@ -12,5 +12,6 @@ data class Quote(
         val id: String?,
         val quote: String,
         val author: String,
-        val rating: Double
+        val rating: Double,
+        val quoteUsedInNotification: Boolean
 )
