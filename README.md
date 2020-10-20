@@ -3,31 +3,31 @@
 # Carpe Diem ![quotes](https://user-images.githubusercontent.com/58456263/88000807-9dee4a00-cacc-11ea-8684-f5d8f06c793b.png)
 A simple REST API that will get the daily quote
 
-## Get All Quotes
-Use this endpoint to get a list of all the quotes. As of now there are around ~300 unique quotes ybb different authors.
+## Get Top 15 most popular quotes
+Use this endpoint to get a list of the top 15 quotes. As of now there are around ~300 unique quotes by different authors.
 
 ### Request
-``GET /quotes``
+``GET /top-quotes``
 
-``curl not-yet-ready``
+``curl --location --request GET 'https://sieze-the-day.herokuapp.com/top-quotes' \
+--data-raw ''``
 
 ### Response
 ````json
 [
     {
-        "id": "5f02",
-        "quote": "If you want to achieve greatness stop asking for permission.",
-        "author": "Anonymous"
-    },
-    {
         "id": "5f03",
         "quote": "Things work out best for those who make the best of how things work out.",
-        "author": "John Wooden"
+        "author": "John Wooden",
+        "rating": 88.0,
+        "quoteUsedInNotification": false
     },
     {
         "id": "5f04",
         "quote": "To live a creative life, we must lose our fear of being wrong.",
-        "author": "Anonymous"
+        "author": "Anonymous",
+        "rating": 998.0,
+        "quoteUsedInNotification": false
     }
 ]
 ````
@@ -36,26 +36,79 @@ Use this endpoint to get a list of all the quotes. As of now there are around ~3
 Use this endpoint to get a particular quote.
 
 ### Request
-``GET /quotes?id=1``
+``GET /quote?id=1``
 
-``curl not-yet-ready``
+``curl --location --request GET 'https://sieze-the-day.herokuapp.com/quote?id=gh7' \
+--data-raw ''``
 
 ### Response
 ````json
     {
-        "id": "5f02",
-        "quote": "If you want to achieve greatness stop asking for permission.",
-        "author": "Anonymous"
-    }
+    "id": "gh7",
+    "quote": "When I dare to be powerful – to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
+    "author": "Audre Lorde",
+    "rating": 998.0,
+    "quoteUsedInNotification": false
+}
 ````
 
+
+## Serach quote by author
+Use this endpoint to search quotes by author 
+
+``GET /quote-by-author?authorName=foo"``
+
+``curl --location --request GET 'https://sieze-the-day.herokuapp.com/quote-by-author?authorName=Henry' \
+--data-raw ''``
+
+### Response
+````json
+[
+    {
+        "id": "1f",
+        "quote": "A real entrepreneur is somebody who has no safety net underneath them.",
+        "author": "Henry Kravis",
+        "rating": 989.0,
+        "quoteUsedInNotification": false
+    },
+    {
+        "id": "2g",
+        "quote": "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
+        "author": "Henry Ford",
+        "rating": 104.0,
+        "quoteUsedInNotification": false
+    }
+]
+````
+
+## Upvote quote
+Use this endpoint to upvote a quote
+
+``PUT /up-vote-quote?id=a5f"``
+
+``curl --location --request PUT 'https://sieze-the-day.herokuapp.com/up-vote-quote?id=a5f' \
+--data-raw ''``
+
+## Downvote a quote
+Use this endpoint to downvote a quote
+
+``PUT /down-vote-quote?id=a5f"``
+
+``curl --location --request PUT 'https://sieze-the-day.herokuapp.com/down-vote-quote?id=a5f' \
+--data-raw ''``
+
 ## Submit a new quote
-Use this API if you want to add a quote. Once we receive the quote we will verify it's authenticity and let me know if we will accept it.
+Use this API if you want to add a quote. Once we receive the quote we will verify it's authenticity and let you know if we will accept it.
 
 ### Request
-``POST /quote``
+``POST /quote?id=id5``
 
-``curl not-yet-ready``
+``curl --location --request POST 'http://localhost:8080/quote?id=id5 \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "quote": "A journey of a thousand mile starts with one step",
+    "author": "Anonymous"
+}'``
 
 Body of the request
 ```json
@@ -64,44 +117,6 @@ Body of the request
     "author": "Confucius"
 }
 ```
-
-### Response
-````
-Date: Thu, 24 Feb 2011 12:36:30 GMT
-Status: 200 OK
-1
-````
-
-## Update an existing quote
-Use this API if you want to update an existing quote. Once we receive the updated quote we will verify it and let me know if we will accept the changes.
-
-### Request
-``PUT /quote?quoteId=5f02``
-
-``curl not-yet-ready``
-
-Body of the request
-```json
-{
-    "quote": "Any journey, no matter how long, starts with one step",
-    "author": "Confucius"
-}
-```
-
-### Response
-````
-Date: Thu, 24 Feb 2011 12:36:30 GMT
-Status: 200 OK
-1
-````
-
-## Delete an existing quote
-Use this API if you want to delete an existing quote. Once we receive the request we will verify it and let me know if we accept the suggestion.
-
-### Request
-``DELETE /quote?quoteId=5f02``
-
-``curl not-yet-ready``
 
 ### Response
 ````
