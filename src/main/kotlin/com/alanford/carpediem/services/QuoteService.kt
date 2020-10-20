@@ -1,7 +1,6 @@
 package com.alanford.carpediem.services
 
 import com.alanford.carpediem.models.Quote
-import com.alanford.carpediem.models.QuoteUnderReview
 import com.alanford.carpediem.repository.QuoteRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
@@ -15,6 +14,29 @@ class QuoteService {
 
     @Autowired
     private lateinit var quoteRepository: QuoteRepository
+
+    /**
+     * Get quote for notification
+     */
+    fun getQuoteForNotification(): Quote {
+        // get all the quotes
+        val listOfAllQuotes = getAllQuotes()
+        // get the first one that has not been used
+        var quoteResult: Quote? = listOfAllQuotes.firstOrNull { !it.quoteUsedInNotification }
+
+        // we have found a quote we have not used before
+        if(quoteResult != null) {
+            quoteRepository.save(quoteResult.copy(quoteUsedInNotification = true))
+            return quoteResult
+        }
+
+        // update quoteUsedInNotification for all quotes to not be false (reuse quotes)
+        listOfAllQuotes.forEach { quote -> quoteRepository.save(quote.copy(quoteUsedInNotification = false)) }
+        // we used all the available quotes, repeat the list
+        quoteResult = listOfAllQuotes[0]
+        return quoteResult
+    }
+
 
     /**
      * Returns all the quotes
@@ -41,7 +63,7 @@ class QuoteService {
      */
     fun upOrDownVote(quote: Quote) = quoteRepository.save(quote)
 
-    fun generateRandomRating(quote: Quote){
+    fun generateRandomRating(quote: Quote) {
         quoteRepository.save(quote)
     }
 

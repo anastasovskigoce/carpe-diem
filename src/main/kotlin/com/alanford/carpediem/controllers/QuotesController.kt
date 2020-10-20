@@ -50,11 +50,7 @@ class QuotesController {
     fun upVote(@RequestParam(value = "id") id: String): ResponseEntity.BodyBuilder {
         val quote = quoteService.getQuoteById(id)
         return if (quote != null) {
-            quoteService.upOrDownVote(Quote(id,
-                    quote.quote,
-                    quote.author,
-                    quote.rating + 1)
-            )
+            quoteService.upOrDownVote(quote.copy(rating = quote.rating + 1))
             ResponseEntity.ok()
         } else {
             ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -69,11 +65,7 @@ class QuotesController {
     fun downVote(@RequestParam(value = "id") id: String): ResponseEntity.BodyBuilder {
         val quote = quoteService.getQuoteById(id)
         return if (quote != null) {
-            quoteService.upOrDownVote(Quote(id,
-                    quote.quote,
-                    quote.author,
-                    quote.rating - 1)
-            )
+            quoteService.upOrDownVote(quote.copy(rating = quote.rating - 1))
             ResponseEntity.ok()
         } else {
             ResponseEntity.status(HttpStatus.BAD_REQUEST)

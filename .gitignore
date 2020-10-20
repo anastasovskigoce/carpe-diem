@@ -1,5 +1,7 @@
 # Default ignored files
 .idea/
+.idea/misc.xml
+.idea/compiler.xml
 /shelf/
 .DS_Store
 /confluence/target

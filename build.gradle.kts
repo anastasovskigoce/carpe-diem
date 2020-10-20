@@ -27,6 +27,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation(group = "com.google.firebase", name = "firebase-admin", version = "6.8.1")
     compileOnly("org.projectlombok:lombok")
     implementation(group = "com.github.ulisesbocchio", name = "jasypt-spring-boot-starter", version = "3.0.3")
     developmentOnly("org.springframework.boot:spring-boot-devtools")

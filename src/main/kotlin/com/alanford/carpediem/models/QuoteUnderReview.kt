@@ -11,7 +11,5 @@ data class QuoteUnderReview(
         @Id
         val id: String?,
         val quote: String = "",
-        val author: String = "",
-        val mapping: String,
-        val existingQuoteId: String = ""
+        val author: String = ""
 )
