@@ -12,7 +12,7 @@ import java.io.IOException
 
 @Service
 class FirebaseCloudMessagingInitializer {
-    @Value("google/push-notifications-carpediem-firebase-adminsdk.json")
+    @Value("\${pushNotification}")
     private lateinit var firebaseConfigPath: String
 
     private val logger = LoggerFactory.getLogger(FirebaseCloudMessagingInitializer::class.java)
