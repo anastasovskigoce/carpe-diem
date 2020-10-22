@@ -3,6 +3,7 @@ package com.alanford.carpediem.controllers
 import com.alanford.carpediem.models.Quote
 import com.alanford.carpediem.models.QuoteUnderReview
 import com.alanford.carpediem.services.QuoteService
+import com.alanford.carpediem.utils.Generic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -17,6 +18,17 @@ class QuotesController {
 
     @Autowired
     lateinit var quoteService: QuoteService
+
+    /**
+     * This returns all the quotes
+     * @return all the available quotes
+     */
+    @GetMapping("/random-quote")
+    fun getRandomQuote(): Quote {
+        val allQuotes = quoteService.getAllQuotes()
+        val position = Generic.generateNumberBetween(0, allQuotes.lastIndex)
+        return allQuotes[position]
+    }
 
     /**
      * This returns all the quotes
